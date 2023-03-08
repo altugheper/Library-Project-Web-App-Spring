@@ -31,9 +31,9 @@ public class ContactMessage {
     @Column(length = 50, nullable = false)
     private String subject;
 
-    @Size(min = 20, max = 50, message = "Your name '${validatedValue}' must be between {min} and {max} chars long")
+    @Size(min = 20, max = 200, message = "Your name '${validatedValue}' must be between {min} and {max} chars long")
     @NotNull(message = "Please provide body")
-    @Column(length = 50, nullable = false)
+    @Column(length = 200, nullable = false)
     private String body;
 
     @Email(message = "Please provide e-mail")
