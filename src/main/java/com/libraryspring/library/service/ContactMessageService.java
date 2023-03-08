@@ -1,6 +1,8 @@
 package com.libraryspring.library.service;
 
 import com.libraryspring.library.domain.ContactMessage;
+import com.libraryspring.library.exception.ResourceNotFoundException;
+import com.libraryspring.library.exception.message.ErrorMessage;
 import com.libraryspring.library.repository.ContactMessageRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -41,7 +43,7 @@ public class ContactMessageService {
     public ContactMessage getContactMessage(Long id) {
 
         return contactMessageRepository.findById(id).orElseThrow(() ->
-                new )
+                new ResourceNotFoundException(ErrorMessage.RESOURCE_NOT_FOUND_EXCEPTION));
 
     }
 }
