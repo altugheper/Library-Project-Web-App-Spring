@@ -6,6 +6,8 @@ import com.libraryspring.library.dto.request.ContactMessageRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface ContactMessageMapper {
 
@@ -15,4 +17,7 @@ public interface ContactMessageMapper {
     // ContactMessageRequest -> ContactMessage
     @Mapping(target = "id", ignore = true)
     ContactMessage contactMessageRequestToContactMessage(ContactMessageRequest contactMessageRequest);
+
+    // List<ContactMessage> -> List<ContactMessageDTO>
+    List<ContactMessageDTO> mapDto(List<ContactMessage> contactMessageList);
 }
