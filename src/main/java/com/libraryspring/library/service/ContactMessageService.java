@@ -52,4 +52,15 @@ public class ContactMessageService {
         contactMessageRepository.delete(contactMessage);
 
     }
+
+    public void updateContactMessage(Long id, ContactMessage contactMessage) {
+        ContactMessage contactMessage1 = getContactMessage(id);
+
+        contactMessage1.setName(contactMessage.getName());
+        contactMessage1.setBody(contactMessage.getBody());
+        contactMessage1.setEmail(contactMessage.getEmail());
+        contactMessage1.setSubject(contactMessage.getSubject());
+
+        contactMessageRepository.save(contactMessage1);
+    }
 }

@@ -111,7 +111,20 @@ public class ContactMessageController {
     }
 
     // Update Contact Message
+    @PutMapping("/{id}")
+    public ResponseEntity<LbResponse> updateContactMessage(@PathVariable Long id,
+                                                           @Valid @RequestBody ContactMessageRequest contactMessageRequest){
 
+        ContactMessage contactMessage =
+                contactMessageMapper.contactMessageRequestToContactMessage(contactMessageRequest);
+        contactMessageService.updateContactMessage(id, contactMessage);
+
+        LbResponse response =
+                new LbResponse(ResponseMessage.CONTACTMESSAGE_UPDATE_RESPONSE,true);
+
+        return ResponseEntity.ok(response);
+
+    }
 
 
 
