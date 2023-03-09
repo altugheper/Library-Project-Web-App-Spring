@@ -127,8 +127,6 @@ public class ContactMessageController {
     }
 
 
-
-
     private Page<ContactMessageDTO> getPageDTO(Page<ContactMessage> contactMessagePage){
         return contactMessagePage.map(
                 contactMessage -> contactMessageMapper.contactMessageToDTO(contactMessage));
