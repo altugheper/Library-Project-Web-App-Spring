@@ -46,4 +46,10 @@ public class ContactMessageService {
                 new ResourceNotFoundException(ErrorMessage.RESOURCE_NOT_FOUND_EXCEPTION));
 
     }
+
+    public void deleteContactMessage(Long id) {
+        ContactMessage contactMessage = getContactMessage(id);
+        contactMessageRepository.delete(contactMessage);
+
+    }
 }

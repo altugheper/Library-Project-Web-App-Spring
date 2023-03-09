@@ -5,6 +5,7 @@ import com.libraryspring.library.domain.ContactMessage;
 import com.libraryspring.library.dto.ContactMessageDTO;
 import com.libraryspring.library.dto.request.ContactMessageRequest;
 import com.libraryspring.library.dto.response.LbResponse;
+import com.libraryspring.library.dto.response.ResponseMessage;
 import com.libraryspring.library.mapper.ContactMessageMapper;
 import com.libraryspring.library.repository.ContactMessageRepository;
 import com.libraryspring.library.service.ContactMessageService;
@@ -104,8 +105,13 @@ public class ContactMessageController {
     public ResponseEntity<LbResponse> deleteContactMessage(@PathVariable Long id){
         contactMessageService.deleteContactMessage(id);
 
-        LbResponse response = new LbResponse()
+        LbResponse response = new LbResponse(ResponseMessage.CONTACTMESSAGE_DELETE_RESPONSE, true);
+
+        return ResponseEntity.ok(response);
     }
+
+    // Update Contact Message
+
 
 
 
