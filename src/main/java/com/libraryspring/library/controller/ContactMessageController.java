@@ -87,6 +87,26 @@ public class ContactMessageController {
 
     }
 
+    // Get Contact Message With RequestParam
+    @GetMapping("/request")
+    public ResponseEntity<ContactMessageDTO> getContactMessageWithRequestParam(@RequestParam("id")Long id){
+
+        ContactMessage contactMessage = contactMessageService.getContactMessage(id);
+
+        ContactMessageDTO contactMessageDTO = contactMessageMapper.contactMessageToDTO(contactMessage);
+
+        return ResponseEntity.ok(contactMessageDTO);
+
+    }
+
+    // Delete Contact Message
+    @DeleteMapping("/{id}")
+    public ResponseEntity<LbResponse> deleteContactMessage(@PathVariable Long id){
+        contactMessageService.deleteContactMessage(id);
+
+        LbResponse response = new LbResponse()
+    }
+
 
 
 
