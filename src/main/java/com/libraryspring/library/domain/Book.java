@@ -1,12 +1,10 @@
 package com.libraryspring.library.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -25,13 +23,13 @@ public class Book {
 
     private String isbn;
 
-    private int pageCount;
+    private Integer pageCount;
 
     private Long authorId;
 
     private Long publisherId;
 
-    private int publishDate;
+    private Integer publishDate;
 
     private Long categoryId;
 
@@ -45,7 +43,9 @@ public class Book {
 
     private boolean featured;
 
-    private LocalDateTime createDate;
+    @NotNull
+    @Setter(AccessLevel.NONE)
+    private LocalDateTime createDate = LocalDateTime.now();
 
     private boolean builtIn;
 
