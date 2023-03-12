@@ -22,7 +22,6 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter(AccessLevel.NONE)
     private Long id;
 
     @Column(nullable = false)
@@ -31,7 +30,7 @@ public class Book {
 
 
     @Column(length = 17, nullable = false)
-    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{5}-\\d{2}-\\d")
+    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{5}-\\d{2}-\\d", message = "ISBN number must be in the format 999-99-99999-99-9")
     private String isbn;
 
     private Integer pageCount;
@@ -54,17 +53,20 @@ public class Book {
     private boolean loanable=true;
 
     @Column(length = 6, nullable = false)
-    @Pattern(regexp = "[A-Z]{2}-\\\\d{3}")
+    @Pattern(regexp = "[a-zA-Z]{2}-\\\\d{3}", message = "Shelf Code number must be in the format AA-999")
     private String shelfCode;
 
-    private boolean active;
+    @Column(nullable = false)
+    private boolean active=true;
 
-    private boolean featured;
+    @Column(nullable = false)
+    private boolean featured=false;
 
-    @NotNull
-    @Setter(AccessLevel.NONE)
+    @Column(nullable = false)
+    @JsonFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private LocalDateTime createDate = LocalDateTime.now();
 
-    private boolean builtIn;
+    @Column(nullable = false)
+    private boolean builtIn=false;
 
 }
