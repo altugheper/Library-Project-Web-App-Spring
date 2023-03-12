@@ -19,42 +19,6 @@ spring:
     properties:
       '[hibernate.format_sql]': true
 
-#image
-servlet:
-  multipart:
-    max-file-size: 2MB
-    max-request-size: 2MB
-
-
-
-logging:
-  file:
-    name: log/library.log
-  pattern:
-    file: "%d %-5level [%thread] %logger:%msg%n"
-  level:
-    '[org.springframework.web]' : WARN
-    '[org.hibernate]' : INFO
-    '[com.saferent]' : DEBUG
-
-management: #actuator
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  info:
-    env:
-      enabled: true
-  endpoint:
-    health:
-      show-details: always
-    shutdown:
-      enabled: true
-
-saferent:
-  app:
-    jwtSecret: library@!10
-    jwtExpirationMs: 86400000
 
 info:
   application:
