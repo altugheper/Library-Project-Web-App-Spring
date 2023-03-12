@@ -67,6 +67,6 @@ public class Book {
     private LocalDateTime createDate = LocalDateTime.now();
 
     @Column(nullable = false)
-    private boolean builtIn=false;
+    private Boolean builtIn=false;
 
 }
