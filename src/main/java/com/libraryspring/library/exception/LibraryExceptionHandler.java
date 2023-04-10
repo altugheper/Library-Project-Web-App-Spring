@@ -145,6 +145,6 @@ public class LibraryExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(error);
     }
 
-    // 7. 09:17
+
 
 }
