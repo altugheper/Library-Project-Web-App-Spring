@@ -49,6 +49,6 @@ public class User {
                 inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    // 7. 56:00
+    // 7. 1.24
 
 }
